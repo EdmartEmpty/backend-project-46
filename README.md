@@ -3,6 +3,8 @@
 
 [![.github/workflows/build.yml](https://github.com/EdmartEmpty/backend-project-46/actions/workflows/build.yml/badge.svg)](https://github.com/EdmartEmpty/backend-project-46/actions/workflows/build.yml)
 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=EdmartEmpty_backend-project-46&metric=coverage)](https://sonarcloud.io/summary/new_code?id=EdmartEmpty_backend-project-46)
+
 **Проект вычислитель отличий**
 
 > Пример установки и демонстрация работы утилиты gendiff.
