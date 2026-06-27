@@ -3,6 +3,7 @@ import parse from '../src/helpers/parser.js'
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { readFileSync } from 'node:fs'
+import { load } from 'js-yaml'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -21,6 +22,10 @@ beforeEach(() => {
 test('parser test json', () => {
   expect(parse('json', jsonContent)).toEqual(JSON.parse(jsonContent))
 })
+test('parser test yaml', () => {
+  expect(parse('yaml', yamlContent)).toEqual(load(yamlContent))
+})
+
 test('parser test error format', () => {
-  expect(parse('yaml', yamlContent)).toEqual('Такого формата нет')
+  expect(parse('txt', yamlContent)).toEqual('Такого формата нет')
 })

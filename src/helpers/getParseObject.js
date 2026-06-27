@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { cwd } from 'node:process'
 import parser from './parser.js'
+
 const getPath = filePath => path.resolve(cwd(), filePath)
 
 const getParseObject = (filePath) => {
