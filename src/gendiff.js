@@ -31,13 +31,14 @@ export const gendiff = (filepath1, filepath2, options = null) => {
         result[` ${key}`] = value1
       }
     }
-    if (options.format) {
+    const format = options?.format || false
+    if (format) {
       const srtingResult = outputFormats[options.format](result)
       console.log(srtingResult)
       return
     }
     console.log(result)
-    return result
+    return JSON.stringify(result)
   }
   catch (error) {
     console.warn('Ошибка \n', error)

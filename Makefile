@@ -10,3 +10,5 @@ gendiff:
 	node bin/gendiff.js -h
 test-coverage:
 	npm test -- --coverage
+test:
+	npm test
