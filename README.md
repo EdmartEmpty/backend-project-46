@@ -9,6 +9,12 @@
 
 **Проект вычислитель отличий**
 
-> Пример установки и демонстрация работы утилиты gendiff.
+> Пример установки и демонстрация работы утилиты `gendiff`.
 
 [![asciicast](https://asciinema.org/a/UpuSCfHVzXz4SX0K.svg)](https://asciinema.org/a/UpuSCfHVzXz4SX0K)
+
+> Пример работы утилиты `gendiff` с глубоким сравнением.
+>`gendiff` работает с разными форматами вывода, с помощью флага `-f --format` вы можете их изменять.
+> Если не указан формат то по умолчанию стоит формат `'stylish'`
+
+[![asciicast](https://asciinema.org/a/oPNzNVG2SSchh9rB.svg)](https://asciinema.org/a/oPNzNVG2SSchh9rB)
