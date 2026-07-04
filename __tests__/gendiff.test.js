@@ -1,38 +1,25 @@
-import { test, expect, beforeEach } from '@jest/globals'
+import { test, expect } from '@jest/globals'
 import gendiff from '../src/gendiff.js'
 import { fileURLToPath } from 'url'
 import path from 'path'
+import { readFileSync } from 'node:fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const getFixturePath = filename => path.join(__dirname, '..', '__fixtures__', filename)
-let jsonContentPath1
-let jsonContentPath2
-let yamlContentPath1
-let yamlContentPath2
+const conten = [
+  ['file1.json', 'file2.json', 'result.txt'],
+  ['file1.yaml', 'file2.yaml', 'result.txt'],
+  ['deepFile1.json', 'deepFile2.json', 'deepResult.txt'],
+  ['deepFile1.yaml', 'deepFile2.yaml', 'deepResult.txt'],
+]
 
-beforeEach(() => {
-  jsonContentPath1 = getFixturePath('file1.json')
-  jsonContentPath2 = getFixturePath('file2.json')
-  yamlContentPath1 = getFixturePath('file1.yaml')
-  yamlContentPath2 = getFixturePath('file2.yaml')
-},
-)
-test('gendiff json test ', () => {
-  const result = gendiff(jsonContentPath1, jsonContentPath2)
-  const expectedResult = '{"- follow":false," host":"hexlet.io","- proxy":"123.234.53.22","- timeout":50,"+ timeout":20,"+ verbose":true}'
-  expect(result).toEqual(expectedResult)
-})
-
-test('gendiff yaml test ', () => {
-  const result = gendiff(yamlContentPath1, yamlContentPath2)
-  const expectedResult = '{"- follow":false," host":"hexlet.io","- proxy":"123.234.53.22","- timeout":50,"+ timeout":20,"+ verbose":true}'
-  expect(result).toEqual(expectedResult)
-})
-
-test('gendiff with format', () => {
-  const result = gendiff(yamlContentPath1, yamlContentPath2, { options: 'json' })
-  const expectedResult = '{"- follow":false," host":"hexlet.io","- proxy":"123.234.53.22","- timeout":50,"+ timeout":20,"+ verbose":true}'
-  expect(result).toEqual(expectedResult)
+test.each(conten)('test function gendiff on all levels %i', (file1, file2, result) => {
+  const pathFile1 = getFixturePath(file1)
+  const pathFile2 = getFixturePath(file2)
+  const difference = gendiff(pathFile1, pathFile2)
+  const expectedResultPath = getFixturePath(result)
+  const expectedResultContent = readFileSync(expectedResultPath, 'utf-8')
+  expect(difference).toEqual(expectedResultContent)
 })
