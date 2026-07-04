@@ -1,0 +1,7 @@
+{
+    a: name
+    b: false
+    c: {
+        f: ddd
+    }
+}

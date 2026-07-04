@@ -7,7 +7,6 @@ const getPath = filePath => path.resolve(cwd(), filePath)
 
 const getParseObject = (filePath) => {
   const absolutePath = getPath(filePath)
-
   const content = readFileSync(absolutePath, 'utf-8')
   const format = path.extname(filePath).slice(1)
   const parseObject = parser(format, content)
