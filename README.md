@@ -18,3 +18,7 @@
 > Если не указан формат то по умолчанию стоит формат `'stylish'`
 
 [![asciicast](https://asciinema.org/a/oPNzNVG2SSchh9rB.svg)](https://asciinema.org/a/oPNzNVG2SSchh9rB)
+
+> Формат `plain` отражает ситуацию, словно мы объединили второй объект с первым:
+
+[![asciicast](https://asciinema.org/a/xunzYQZ6iWZV3HP1.svg)](https://asciinema.org/a/xunzYQZ6iWZV3HP1)

@@ -1,6 +1,8 @@
 import stylishFormat from './stylerFormat.js'
+import plainFormat from './plainFormat.js'
 
-const formatStyle = { stylish: stylishFormat }
+const formatStyle = { stylish: stylishFormat,
+  plain: plainFormat }
 
 export default (style, file1, file2) => {
   if (formatStyle[style] === undefined) {
