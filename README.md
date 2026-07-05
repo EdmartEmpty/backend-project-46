@@ -22,3 +22,7 @@
 > Формат `plain` отражает ситуацию, словно мы объединили второй объект с первым:
 
 [![asciicast](https://asciinema.org/a/xunzYQZ6iWZV3HP1.svg)](https://asciinema.org/a/xunzYQZ6iWZV3HP1)
+
+> Вывод в структурированном формате, таком как `json`
+
+[![asciicast](https://asciinema.org/a/FldFOqAZtYmReF4A.svg)](https://asciinema.org/a/FldFOqAZtYmReF4A)
