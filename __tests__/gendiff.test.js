@@ -15,7 +15,7 @@ const conten = [
   ['deepFile1.yaml', 'deepFile2.yaml', 'deepResult.txt'],
   ['deepFile1.json', 'deepFile2.json', 'planiDeepFixtures.txt', { format: 'plain' }],
   ['deepFile1.yaml', 'deepFile2.yaml', 'planiDeepFixtures.txt', { format: 'plain' }],
-  ['deepFile1.yaml', 'deepFile2.yaml', 'jsonResult.txt', { format: 'json' }],
+  ['deepFile1.yml', 'deepFile2.yml', 'jsonResult.txt', { format: 'json' }],
 ]
 
 test.each(conten)('test function gendiff on all levels %i', (file1, file2, result, options = { format: 'stylish' }) => {

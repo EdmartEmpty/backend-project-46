@@ -2,8 +2,8 @@ import { load } from 'js-yaml'
 
 const formats = {
   json: JSON.parse,
-  yaml: load,
   yml: load,
+  yaml: load,
 }
 
 const parser = (formant, data) => {
