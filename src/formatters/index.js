@@ -7,6 +7,7 @@ const formatStyle = { stylish: stylishFormat,
   json: jsonFormat }
 
 export default (style, file1, file2) => {
+  console.log('ПРИШЕЛ СТИЛЬ:', style)
   if (formatStyle[style] === undefined) {
     throw new Error('Unknown format')
   }
