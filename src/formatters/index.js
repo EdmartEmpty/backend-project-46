@@ -8,7 +8,7 @@ const formatStyle = { stylish: stylishFormat,
 
 export default (style, file1, file2) => {
   if (formatStyle[style] === undefined) {
-    throw new Error('Unknown format')
+    throw new Error(`Unknown format: ${style}`)
   }
   return formatStyle[style](file1, file2)
 }
