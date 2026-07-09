@@ -27,5 +27,5 @@ test('parser test yaml', () => {
 })
 
 test('parser test error format', () => {
-  expect(parse('txt', yamlContent)).toEqual('Такого формата нет')
+  expect(() => parse('txt', yamlContent)).toThrow('Такого формата нет')
 })
