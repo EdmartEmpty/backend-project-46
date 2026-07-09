@@ -1,29 +1,20 @@
-import finderDifference from '../helpers/finderDifference.js'
-import _ from 'lodash'
 import normalizeValue from '../helpers/normalizeValue.js'
 
-const plainFormat = (object, object2, startProperty = '') => {
-  const tree = finderDifference(object, object2)
-  const treeKeys = _.sortBy(Object.keys(tree))
+const plainFormat = (tree, startProperty = '') => {
   let result = []
-  for (const key of treeKeys) {
-    const currentPath = startProperty ? `${startProperty}.${key}` : key
-    const valueObject = object[key]
-    const valueObject2 = object2[key]
-    if (tree[key] === 'added') {
-      result.push(`Property '${currentPath}' was added with value: ${normalizeValue(valueObject2)}`)
+  for (const object of tree) {
+    const currentPath = startProperty ? `${startProperty}.${object.key}` : object.key
+    if (object.type === 'added') {
+      result.push(`Property '${currentPath}' was added with value: ${normalizeValue(object.value)}`)
     }
-    else if (tree[key] === 'deleted') {
+    else if (object.type === 'deleted') {
       result.push(`Property '${currentPath}' was removed`)
     }
-    else if (tree[key] === 'changed') {
-      if (typeof valueObject === 'object' && valueObject !== null
-        && typeof valueObject2 === 'object' && valueObject2 !== null) {
-        result.push(plainFormat(valueObject, valueObject2, currentPath))
-      }
-      else {
-        result.push(`Property '${currentPath}' was updated. From ${normalizeValue(valueObject)} to ${normalizeValue(valueObject2)}`)
-      }
+    else if (object.type === 'changed') {
+      result.push(`Property '${currentPath}' was updated. From ${normalizeValue(object.oldValue)} to ${normalizeValue(object.newValue)}`)
+    }
+    else if (object.type === 'nested') {
+      result.push(plainFormat(object.children, currentPath))
     }
   }
   return result.join('\n')

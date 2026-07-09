@@ -8,7 +8,7 @@ const formats = {
 
 const parser = (formant, data) => {
   if (!formats[formant]) {
-    return 'Такого формата нет'
+    throw new Error('Такого формата нет')
   }
   return formats[formant](data, 'utf-8')
 }
